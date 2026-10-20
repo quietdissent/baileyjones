@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quiet Dissent — Bailey Jones</title>
+<meta name="description" content="Case study: designing a connected product ecosystem for a one-person operations and AI advisory practice.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <header class="site-head">
+    <a class="name" href="/">Bailey Jones</a>
+    <nav aria-label="Primary">
+      <a href="/#work" aria-current="page">Work</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="cs-intro">
+      <div>
+        <a class="back" href="/#work">All work</a>
+        <h1>Quiet Dissent</h1>
+        <p class="lede">One connected system for a one-person advisory practice, from a stranger’s first visit to a client’s ongoing engagement.</p>
+      </div>
+      <dl class="facts">
+        <dt>Role</dt><dd>Sole designer. Research, positioning, information architecture, interaction and visual design, content and QA.</dd>
+        <dt>Build</dt><dd>AI-assisted development under my direction: I set the architecture, requirements and design, and reviewed what was built against them.</dd>
+        <dt>Stack</dt><dd>Next.js, React, Supabase, Clerk, Tailwind, Vercel</dd>
+        <dt>Status</dt><dd>Complete system, not launched to clients.</dd>
+      </dl>
+    </section>
+
+    <section class="cs-section">
+      <h2>The problem</h2>
+      <div class="prose">
+        <p>Owners of small service businesses — home services, healthcare, legal and professional services, roughly 5 to 50 people — lose work in places they can’t see. Calls ring out after hours. Web leads wait a day for a reply. Staff spend hours on tasks software could take. Most owners have already tried a tool or two. Nothing is connected, and nobody is steering.</p>
+        <p>A practice selling into that has its own problem: what it sells is a diagnosis, and a diagnosis is invisible until someone pays for it. So the design question was how to make the problem concrete for an owner before the first conversation, and then keep everything after that conversation in one place.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2>Constraints</h2>
+      <div class="prose">
+        <ul>
+          <li>One person doing the selling, the work and the support. Anything that needed a team to run was out.</li>
+          <li>An audience with little time and no patience for jargon.</li>
+          <li>Every number shown to an owner had to survive the owner checking it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2>The system</h2>
+      <div class="prose">
+        <p>Each tool exists to move an owner one step: from noticing a problem, to sizing it, to talking about it, to working on it. They share one visual language so they read as one company rather than five products.</p>
+      </div>
+      <div class="full">
+        <ol class="flow four" aria-label="How the Quiet Dissent system fits together">
+          <li><div class="stage">Attract</div><ul><li><b>Marketing site</b>Frames the problem in an owner’s words before naming a service.</li><li class="internal"><b>Outreach toolkit</b>Internal. Reads a business’s public reviews for signs of service gaps and tracks prospects.</li></ul></li>
+          <li><div class="stage">Diagnose</div><ul><li><b>Readiness quiz</b>Seven questions in three parts, ending in where the business is most likely losing time or leads.</li><li><b>ROI calculator</b>Sizes missed-call revenue from the owner’s own numbers.</li></ul></li>
+          <li><div class="stage">Engage</div><ul><li><b>Consultation request</b>Asks for the biggest operational headache in the owner’s words, not a menu of services.</li></ul></li>
+          <li><div class="stage">Deliver</div><ul><li><b>Client portal</b>Documents, messages and scheduling, organised by engagement.</li><li><b>Engagement documents</b>Three tiers, five or six defined documents each.</li></ul></li>
+        </ol>
+        <p class="diagram-note">Dashed line marks an internal tool.</p>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2>Key decisions</h2>
+      <div class="decisions">
+        <div class="decision">
+          <h3>Let owners diagnose themselves first</h3>
+          <p>The quiz asks seven questions in three parts: revenue leaks, operational bottlenecks, and appetite for change. Every question includes an answer for “this doesn’t apply to my operation.”</p>
+          <p class="why"><b>Why</b><span>A forced choice produces a false answer, and a false answer produces a false result. The escape option keeps results honest and shows which questions don’t fit a given trade.</span></p>
+          <p class="cost"><b>Tradeoff</b><span>Fewer complete scores, and some results are less specific.</span></p>
+        </div>
+        <div class="decision">
+          <h3>Make the calculator show its work</h3>
+          <p>Choosing an industry fills in typical call volume, miss rate, job value and close rate. Every input stays editable, the recovery assumption is deliberately conservative, and the sources behind each default open inside the tool.</p>
+          <p class="why"><b>Why</b><span>Owners distrust ROI calculators because most are built to produce a big number. Showing the assumptions, and letting owners replace them with their own, turns the result from a sales claim into their own estimate.</span></p>
+          <p class="cost"><b>Tradeoff</b><span>Smaller headline numbers.</span></p>
+        </div>
+        <div class="decision">
+          <h3>One portal, two roles</h3>
+          <p>Clients and the admin share one data model. Documents, messages and scheduled calls are scoped to each client; the admin side invites clients, publishes documents and runs every conversation. A new client’s account links itself to their record when they finish signing up, and messages update in real time.</p>
+          <p class="why"><b>Why</b><span>A solo operator can’t afford context scattered across email, shared folders and calendar threads, and a client shouldn’t have to hunt for what they were sent.</span></p>
+          <p class="cost"><b>Tradeoff</b><span>Much more to build than a shared folder. It only pays off on engagements that run for months.</span></p>
+        </div>
+        <div class="decision">
+          <h3>Design the deliverables, not just the screens</h3>
+          <p>Work is structured as three engagements: an assessment, an implementation, and an ongoing advisory retainer. Each has a defined set of documents, from the service agreement to the performance report, and each document is labeled by audience: client, internal or shared.</p>
+          <p class="why"><b>Why</b><span>Scope is what small clients fear most. A visible list of what they get, and when, makes the engagement concrete before they sign.</span></p>
+        </div>
+        <div class="decision">
+          <h3>One visual language across every tool</h3>
+          <p>A dark, quiet opening gives way to warm, light pages. A serif carries the voice, a sans carries the interface, and one muted green does all the emphasis.</p>
+          <p class="why"><b>Why</b><span>The tools were built at different times as separate deployments. Shared type, color and spacing are what make them feel like one practice.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h2>See it</h2>
+      <ul class="links">
+        <li><a href="https://qd-portal.vercel.app">Client portal demo</a><span>A full sample engagement. The client and every figure in it are fictional.</span></li>
+        <li><a href="https://qd-calculator.vercel.app">ROI calculator</a><span>Try changing the defaults.</span></li>
+        <li><a href="https://qd-quiz.vercel.app">Readiness quiz</a><span>Seven questions, about two minutes.</span></li>
+      </ul>
+    </section>
+
+    <section class="cs-section">
+      <h2>What I learned</h2>
+      <div class="prose">
+        <p>I built the whole system before testing its riskiest assumption: whether owners would take the first conversation. Everything after that conversation was ready. The conversation itself was never tested.</p>
+        <p>The next project inverted the order. Test the demand first, build second.</p>
+      </div>
+    </section>
+
+    <div class="next"><span class="label">Next</span><br><a href="/cedar-and-linen">Cedar & Linen</a></div>
+  </main>
+
+  <footer class="site-foot">
+    <span>© 2026 Bailey Jones</span>
+    <span>baileyjones.co</span>
+  </footer>
+</div>
+</body>
+</html>
